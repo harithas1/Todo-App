@@ -1,0 +1,324 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(57, 131, 196);
+  padding: 1vmin 3vmin;
+
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 3vmin;
+      list-style: none;
+      padding: 1vmin;
+
+      li {
+        cursor: pointer;
+        font-size: 3.5vmin;
+        color: white;
+        font-weight: bold;
+      }
+
+      .lists {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 10vmin;
+        background-color: rgb(57, 131, 196);
+        padding: 2vmin;
+        border-radius: 2vmin;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        z-index: 10;
+        
+
+        li {
+          padding: 1vmin;
+          cursor: pointer;
+          font-size: 3.5vmin;
+          color: white;
+          font-weight: bold;
+          
+          &:hover {
+            background-color: white;
+            color: rgb(57, 131, 196);
+
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -----------footer------------ */
+
+footer {
+  background-color: rgb(57, 131, 196);
+  display: flex;
+  justify-content: flex-start;
+  padding: 2vmin 3vmin;
+  gap: 4vmin;
+  align-items: center;
+  color: aliceblue;
+  font-size: 3vmin;
+
+  padding: 2vmin;
+
+  input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    width: 90%;
+    font-size: 3vmin;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgb(219, 206, 206);
+    }
+  }
+
+  .fa-check {
+    border: 1px solid white;
+    padding: 2vmin;
+    border-radius: 50%;
+    font-size: 3vmin;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: rgb(57, 131, 196);
+    }
+  }
+}
+
+/* --------------main------------ */
+
+#container {
+  position: relative;
+  background-color: rgb(5, 44, 79);
+  padding: 2vmin;
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+  /* overflow-y: scroll; */
+  /* overflow-x: hidden; */
+  /* height: 100vh; */
+
+  .fa-eye{
+    font-size: 3vmin;
+    cursor: pointer;
+
+    &:hover {
+      color: #74C0FC;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.2);
+    }
+  }
+  .fa-trash-can, 
+  .fa-pen-to-square {
+    font-size: 3vmin;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.2);
+    }
+  }
+
+  .fa-pen-to-square {
+    font-size: 3vmin;
+    cursor: pointer;
+
+    &:hover {
+      color: #74C0FC;
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.2);
+    }
+  }
+
+
+  
+}
+
+#add {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  background-color: white;
+  color: rgb(57, 131, 196);
+  padding: 3vmin;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 3vmin;
+  font-weight: bold;
+
+  &:hover {
+    background-color: rgb(57, 131, 196);
+    color: white;
+  }
+}
+
+.tododiv {
+  padding: 2vmin;
+  font-size: 3vmin;
+  display: flex;
+  gap: 3vmin;
+  color: white;
+  background-color: rgba(34, 94, 150, 0.621);
+  border-radius: 2vmin;
+  align-items: center;
+  justify-content: space-around;
+
+  input[type="checkbox"] {
+    width: 3vmin;
+    height: 3vmin;
+    background-color: transparent;
+    appearance: none;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: "\2713";
+    display: block;
+    font-size: 3vmin;
+    color: white;
+  }
+
+  #todoTime{
+    background-color: transparent;
+    border: none;
+    color: rgb(112, 190, 220);
+    font-size: 2vmin;
+  }
+}
+
+/* -------------notification type while adding new todo */
+
+.stickytodo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(57, 131, 196);
+  color: white;
+  padding: 5vmin;
+  width: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  border: 2px solid white;
+  cursor: pointer;
+  font-size: 3vmin;
+  font-weight: bold;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2vmin;
+  z-index: 10;
+  flex-wrap: wrap;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  input,
+  textarea,
+  button,
+  select {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 3vmin;
+    padding: 1vmin;
+    border-radius: 3vmin;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: rgb(219, 206, 206);
+      font-style: italic;
+    }
+
+    option {
+      color: black;
+      background: transparent;
+    }
+  }
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border-color: rgb(255, 223, 0);
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.5);
+  }
+
+  textarea {
+    width: 100%;
+    padding: 1vmin 2vmin;
+    resize: vertical;
+  }
+
+  #buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2vmin;
+
+    button {
+      padding: 1vmin 2vmin;
+      border-radius: 3vmin;
+      cursor: pointer;
+      font-size: 3vmin;
+      font-weight: bold;
+
+      &:hover {
+        background-color: white;
+        color: rgb(57, 131, 196);
+      }
+    }
+
+    #cancel {
+      background-color: white;
+      color: rgb(57, 131, 196);
+    }
+
+    #save {
+      background-color: rgb(255, 223, 0);
+      color: rgb(57, 131, 196);
+    }
+  }
+
+  .close {
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+
+
+/* ------------checked */
+
+.checked {
+  /* background-color: rgb(255, 223, 0); */
+  color: rgb(57, 131, 196);
+  text-decoration: line-through;
+}

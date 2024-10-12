@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav id="nav">
+      <section class="left">
+        <ul class="navUl">
+          <li id="check"><i class="fa-solid fa-circle-check"></i></li>
+          <li id="Alllists"></li>
+          <li id="caret"><i class="fa-solid fa-caret-down"></i></li>
+          <ul class="lists" style="display: none">
+            <li id="all">All</li>
+            <li id="personal">Personal</li>
+            <li id="work">Work</li>
+            <li id="shopping">Shopping</li>
+            <li id="study">Study</li>
+            <li id="others">Others</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section class="right">
+        <ul>
+          <!-- <input type="search" /> -->
+          <li id="search"><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li id="more"><i class="fa-solid fa-ellipsis-vertical"></i></li>
+        </ul>
+      </section>
+    </nav>
+
+    <!-- to add todos -->
+    <div id="container">
+      <!-- <div class="tododiv">
+        <input type="checkbox" name="todo" id="todo" />
+        <div id="showTimeTitle">
+          <p id="todotitle">reading</p>
+          <p id="todoTime">2024-10-12</p>
+        </div>
+        <p id="priority">medium</p>
+        <p id="category">Work</p>
+        <i class="fa-regular fa-eye"></i>
+        <i class="fa-regular fa-pen-to-square"></i>
+        <i class="fa-solid fa-trash-can"></i>
+      </div> -->
+      <!-- ----------------------------------------------- -->
+
+      <i id="add" class="fa-solid fa-plus"></i>
+      <!-- ----------------------------------------------- -->
+      <div class="stickytodo" style="display: none">
+        <input type="text" id="taskTitle" placeholder="Enter Task Title" />
+        <textarea
+          placeholder="Enter Task Description"
+          id="taskDescription"
+        ></textarea>
+        <input type="date" id="taskDeadline" />
+        <!-- <input type="time"> -->
+        <select name="taskpriority" id="taskpriority">
+          <option>Select task priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <select name="taskcategory" id="taskcategory">
+          <option>Select Category</option>
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Wishlist">Study</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <div id="buttons">
+          <button id="cancel">Cancel</button>
+          <button id="save">Save Task</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer id="footer">
+      <i class="fa-solid fa-microphone"></i>
+      <input id="newTodo" type="text" placeholder="Enter Quick Task Here" />
+    </footer>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
