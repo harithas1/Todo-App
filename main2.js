@@ -1,7 +1,6 @@
 const allLists = document.getElementById("Alllists");
 allLists.innerText = "All Lists";
 
-// ------------------caret symbol rotate----------------
 
 const caret = document.getElementById("caret");
 
@@ -12,24 +11,24 @@ const newTodo = document.getElementById("newTodo");
 
 console.log(newTodo.value);
 
-// -----------tick symbol typing--------------
+// -----------tick symbol on typing--------------
 
-newTodo.addEventListener("click", () => {
-  if (!footer.querySelector(".fa-check")) {
-    const tick = document.createElement("i");
-    tick.classList.add("fa-solid");
-    tick.classList.add("fa-check");
-    footer.appendChild(tick);
-  }
-});
-footer.addEventListener("mouseleave", () => {
-  const tick = document.querySelector(".fa-check");
-  if (!newTodo.value && tick) {
-    tick.remove();
-  }
-});
+// newTodo.addEventListener("click", () => {
+//   if (!footer.querySelector(".fa-check")) {
+//     const tick = document.createElement("i");
+//     tick.classList.add("fa-solid");
+//     tick.classList.add("fa-check");
+//     footer.appendChild(tick);
+//   }
+// });
+// footer.addEventListener("mouseleave", () => {
+//   const tick = document.querySelector(".fa-check");
+//   if (!newTodo.value && tick) {
+//     tick.remove();
+//   }
+// });
 
-// ---------------------clicking on plus symbol---------------------------------------------------------
+
 
 const ADDNEWTODOPLUS = document.getElementById("add");
 const CANCEL = document.getElementById("cancel");
@@ -45,6 +44,13 @@ const categoryOptions = document.querySelectorAll("#category option");
 
 const todocontainer = document.getElementById("container");
 const trash = document.querySelectorAll(".fa-trash-can");
+
+
+
+
+
+// ---------------------clicking on plus symbol---------------------------------------------------------
+
 
 ADDNEWTODOPLUS.addEventListener("click", () => {
   TASKTITLE.value = "";
@@ -63,6 +69,9 @@ ADDNEWTODOPLUS.addEventListener("click", () => {
   CANCEL.addEventListener("click", () => {
     stickytodo.style.display = "none";
   });
+
+
+  // -------------------save todo----------------
 
   SAVETODO.addEventListener("click", () => {
     if (!TASKTITLE.value || TASKCATEGORY == "") {
@@ -119,7 +128,7 @@ ADDNEWTODOPLUS.addEventListener("click", () => {
   });
 });
 
-// console.log(TASKPRIORITY.value);
+
 
 // ------------local storage getting item-----------
 
@@ -412,14 +421,20 @@ function sort(selectedCategory) {
               JSON.parse(localStorage.getItem(key)).deadline
             }</p>
           </div>
-          <p id="priority">${JSON.parse(localStorage.getItem(key)).priority}</p>
-          <p id="category">${JSON.parse(localStorage.getItem(key)).category}</p>
+          <p id="priority">${
+            JSON.parse(localStorage.getItem(key)).priority
+          }</p>
+          <p id="category">${
+            JSON.parse(localStorage.getItem(key)).category
+          }</p>
 
           <i class="fa-solid fa-eye" id="view"></i>
           <i class="fa-solid fa-pen-to-square" id="edit"></i>
           <i class="fa-solid fa-trash-can" id="delete"></i>
       `;
       todocontainer.appendChild(todoDiv);
+      
+  
     });
   } else {
     keys.forEach((key) => {
@@ -458,3 +473,5 @@ listitems.forEach((listitem) => {
     lists.style.display = "none";
   });
 });
+
+
